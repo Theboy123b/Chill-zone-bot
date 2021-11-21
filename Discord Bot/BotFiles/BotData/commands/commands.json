@@ -1,0 +1,428 @@
+{
+  "command": [
+    {
+      "name": "help",
+      "actions": [
+        {
+          "name": "help menu",
+          "category": "Message",
+          "type": "Send Embed",
+          "fields": [
+            {
+              "name": "!help",
+              "value": "",
+              "inline": "true"
+            },
+            {
+              "name": "",
+              "value": "",
+              "inline": "true"
+            }
+          ],
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "FF5C5C",
+          "title": "Help",
+          "url": "",
+          "authorname": "187 Anführer",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "Dieser Bot wird noch konfiguriert",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "123",
+      "perms": [],
+      "actions": [
+        {
+          "name": "Generate Code",
+          "category": "Variable",
+          "type": "Generate Random Number",
+          "messageActionRows": [],
+          "varname": "code",
+          "min": "1000",
+          "max": "100000",
+          "savevartype": "temp"
+        },
+        {
+          "name": "code",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [],
+          "channelname": "verify",
+          "color": "12FF2A",
+          "title": "Dein Verification Code:",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "\n**${tempVars.code}**\n\nGebe diesen Code ein in weniger als\n10 Sekunden um zu prüfen das du kein\nRoboter bist",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        },
+        {
+          "name": "Wait",
+          "category": "Control",
+          "type": "Wait",
+          "messageActionRows": [],
+          "waitduration": "10",
+          "unit": "seconds"
+        },
+        {
+          "name": "Check",
+          "category": "Variable",
+          "type": "Check Variable Value",
+          "trueActions": [
+            {
+              "name": "giverole",
+              "category": "User Action",
+              "type": "Add Role to User",
+              "messageActionRows": [],
+              "user": "${dbsVars.CommandAuthor.id}",
+              "rolename": "Verified"
+            },
+            {
+              "name": "Du wurdest verifiziert",
+              "category": "Message",
+              "type": "Send Embed",
+              "messageActionRows": [],
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "color": "22FF00",
+              "title": "Glückwunsch du wurdest Verifiziert",
+              "url": "",
+              "authorname": "187 Anführer",
+              "authorimageurl": "",
+              "authorlink": "",
+              "description": "Viel Spaß wünschen wir dir in unserem\n Server!",
+              "thumbnail": "",
+              "image": "",
+              "footer": "",
+              "timestamp": "false",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            },
+            {
+              "name": "Wait_2",
+              "category": "Control",
+              "type": "Wait",
+              "messageActionRows": [],
+              "waitduration": "5",
+              "unit": "seconds"
+            },
+            {
+              "name": "Delete All Messages_1",
+              "category": "Channel Action",
+              "type": "Delete All Messages",
+              "messageActionRows": [],
+              "channelname": "verify",
+              "msgcount": "99"
+            }
+          ],
+          "falseActions": [
+            {
+              "name": "Du wurdest verifiziert_1",
+              "category": "Message",
+              "type": "Send Embed",
+              "messageActionRows": [],
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "color": "FF0000",
+              "title": "Verifikation Fehlgeschlagen!",
+              "url": "",
+              "authorname": "187 Anführer",
+              "authorimageurl": "",
+              "authorlink": "",
+              "description": "Du hast den falschen Code eingegeben\n oder dich verschrieben versuche es\n noch einmal.",
+              "thumbnail": "",
+              "image": "",
+              "footer": "",
+              "timestamp": "false",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            },
+            {
+              "name": "Wait_1",
+              "category": "Control",
+              "type": "Wait",
+              "messageActionRows": [],
+              "waitduration": "5",
+              "unit": "seconds"
+            },
+            {
+              "name": "Delete All Messages",
+              "category": "Channel Action",
+              "type": "Delete All Messages",
+              "messageActionRows": [],
+              "channelname": "verify",
+              "msgcount": "99"
+            }
+          ],
+          "messageActionRows": [],
+          "varname": "code",
+          "savevartype": "temp",
+          "compare": "equal to",
+          "value": "${dbsVars.CommandAuthor.lastMessage}"
+        }
+      ]
+    },
+    {
+      "name": "verify",
+      "perms": [],
+      "actions": [
+        {
+          "name": "Du wurdest verifiziert_2",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "22FF00",
+          "title": "Glückwunsch du wurdest Verifiziert",
+          "url": "",
+          "authorname": "Chill Zone Bot",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "Viel Spaß wünschen wir dir in unserem\n Server!",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        },
+        {
+          "name": "Wait_2_1",
+          "category": "Control",
+          "type": "Wait",
+          "messageActionRows": [],
+          "waitduration": "5",
+          "unit": "seconds"
+        },
+        {
+          "name": "giverole_1",
+          "category": "User Action",
+          "type": "Add Role to User",
+          "messageActionRows": [],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "rolename": "Verified"
+        },
+        {
+          "name": "Wait_2_1_1",
+          "category": "Control",
+          "type": "Wait",
+          "messageActionRows": [],
+          "waitduration": "5",
+          "unit": "seconds"
+        },
+        {
+          "name": "Delete All Messages_1_1",
+          "category": "Channel Action",
+          "type": "Delete All Messages",
+          "messageActionRows": [],
+          "channelname": "verify",
+          "msgcount": "99"
+        }
+      ]
+    },
+    {
+      "name": "kick",
+      "perms": [
+        "@👑owner👑"
+      ],
+      "actions": [
+        {
+          "name": "get user to kick",
+          "category": "Variable",
+          "type": "Get Mentioned User",
+          "messageActionRows": [],
+          "varname": "kickuser",
+          "vartype": "User",
+          "savevartype": "temp"
+        },
+        {
+          "name": "get reason",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "messageActionRows": [],
+          "varname": "kickreason",
+          "vartype": "Text",
+          "savevartype": "temp",
+          "param": "0"
+        },
+        {
+          "name": "kick them",
+          "category": "User Action",
+          "type": "Kick User",
+          "messageActionRows": [],
+          "user": "${tempVars.kickuser.id}",
+          "reason": "${tempVars.kickreason}"
+        },
+        {
+          "name": "kicked succesfully",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "00FF2A",
+          "title": "Erfolgreich gekickt!",
+          "url": "",
+          "authorname": "Chill Zone Bot",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "User wurde erfolgreich gekickt!\n\"${tempVars.kickreason}\"",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "ban",
+      "perms": [
+        "@👑owner👑"
+      ],
+      "actions": [
+        {
+          "name": "get user to ban",
+          "category": "Variable",
+          "type": "Get Mentioned User",
+          "messageActionRows": [],
+          "varname": "banuser",
+          "vartype": "User",
+          "savevartype": "temp"
+        },
+        {
+          "name": "getdays",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "messageActionRows": [],
+          "varname": "bandays",
+          "vartype": "Number",
+          "savevartype": "temp",
+          "param": "2"
+        },
+        {
+          "name": "ban them",
+          "category": "User Action",
+          "type": "Ban User",
+          "messageActionRows": [],
+          "user": "${tempVars.banuser.id}",
+          "reason": "${tempVars.banreason}",
+          "days": "${tempVars.bandays}"
+        },
+        {
+          "name": "banned succesfully",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "09FF00",
+          "title": "Erfolgreich gebannt!",
+          "url": "",
+          "authorname": "Chill Zone Bot",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "User wurde erfolgreich gebannt!\n",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "clear",
+      "perms": [
+        "@👑owner👑"
+      ],
+      "actions": [
+        {
+          "name": "clearing channel",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "FF0000",
+          "title": "Chat wird gecleart",
+          "url": "",
+          "authorname": "187 Anführer",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "Dieser Chat wird in `3` Sekunden\n gecleart sein!",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        },
+        {
+          "name": "Wait_3",
+          "category": "Control",
+          "type": "Wait",
+          "messageActionRows": [],
+          "waitduration": "3",
+          "unit": "seconds"
+        },
+        {
+          "name": "clear chat",
+          "category": "Channel Action",
+          "type": "Delete All Messages",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "msgcount": "100"
+        },
+        {
+          "name": "clearing channel_1",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "00FF2A",
+          "title": "Chat wurde erfolgreich gecleart!",
+          "url": "",
+          "authorname": "187 Anführer",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "Dieser Chat wurde erfolgreich gecleart.",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        },
+        {
+          "name": "Wait_3_1",
+          "category": "Control",
+          "type": "Wait",
+          "messageActionRows": [],
+          "waitduration": "3",
+          "unit": "seconds"
+        },
+        {
+          "name": "clear chat_1",
+          "category": "Channel Action",
+          "type": "Delete All Messages",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "msgcount": "1"
+        }
+      ]
+    }
+  ]
+}
